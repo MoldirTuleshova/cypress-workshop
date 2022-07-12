@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-describe('Context: My First Test', () => {
+describe('Login: Username', () => {
     before(() => {
       // runs once before all tests in the block (before all "it" blocks)
     });
@@ -19,25 +19,19 @@ describe('Context: My First Test', () => {
       // runs after each test in the block (after each "it" blocks)
     });
   
-    it('Test 1', () => {
+    it('Check if user can enter valid username', () => {
       cy.visit('/automation-practice-form');
       expect(true).to.equal(true);
     });
   
-    it('Test 2', () => {
+    it('Check uf user can enter invalid username', () => {
       expect(true).to.equal(true);
     });
   
-    it('Test 3', () => {
+    it('Check if user can kogin without entering username', () => {
       expect(true).to.equal(true);
     });
   
-    it('Test 4', () => {
-      expect(true).to.equal(true);
-    });
   
-    it('Test 5', () => {
-      expect(true).to.equal(true);
-    });
   });
   
