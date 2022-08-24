@@ -11,6 +11,9 @@ describe('Checkboxes: Checkbox actions', () => {
   
       // Open Desktop dropdown
       cy.get('button[aria-label="Toggle"]').eq(1).click();
+
+       // Open Documents dropdown
+       cy.get('button[aria-label="Toggle"]').eq(2).click();
   
       // Get all checkboxes, select Desktop folder and everything under desktop folder.
       cy.get('[type="checkbox"]').then((checkbox) => {

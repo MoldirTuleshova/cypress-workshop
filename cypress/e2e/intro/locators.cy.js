@@ -47,24 +47,27 @@ describe('Locators: Get elements by different locator strategies', () => {
       cy.get('[for="gender-radio-2"]')
         .should('contain', 'Female')
         .and('have.class', 'custom-control-label');
-  
-      // Expect assertion
+  });  
+          
+  it('Check expect assertion', () => {
+    // Expect assertion
       cy.get('[for="gender-radio-2"]').then((element) => {
-        expect(element).to.have.text('Female');
-        expect(element).to.have.class('custom-control-label');
-       });
-     });
-    });
+        expect(element).to.have.text('Female')
+        and(element).to.have.class('custom-control-label');
+      });
+    }); 
 
-    // it('Check state and city fields with assertions'), () => { 
-    //  // should assert
-    //   cy.get (['#stateCity-wrapper > :nth-child(3)'])
-    //   .should('be.disabled');
+    it('Check state and city fields with assertions'), () => { 
+    // should assert
+    cy.get (['#stateCity-wrapper > :nth-child(3)'])
+      .should('be.disabled');
 
-    //    // state and city fieds -  
-    //    cy.get ('#state')
-    //    expect(element).to.be.null;
+    // state and city fieds 
+    cy.get ('#state')
+       expect(element).to.be.null;
 
-    // cy.get('[for="hobbiesWrapper"]')
-    // // .should('contain', 'Sports');
-    // .and('have.class', 'custom-control-label');
+    cy.get('[for="hobbiesWrapper"]')
+      .should('contain', 'Sports')
+      .and('have.class', 'custom-control-label');
+    };
+  });
