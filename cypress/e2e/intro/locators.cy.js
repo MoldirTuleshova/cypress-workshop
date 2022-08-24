@@ -49,7 +49,7 @@ describe('Locators: Get elements by different locator strategies', () => {
         .and('have.class', 'custom-control-label');
   });  
           
-  it('Check expect assertion', () => {
+  xit('Check expect assertion', () => {
     // Expect assertion
       cy.get('[for="gender-radio-2"]').then((element) => {
         expect(element).to.have.text('Female');
@@ -62,17 +62,24 @@ describe('Locators: Get elements by different locator strategies', () => {
     }); 
     
     //added by me
-    it('Check state and city fields with assertions', () => { 
+    it('Check with should and expect', () => { 
     //should assert
       //cy.get (['#city'])
         //.should('be.disabled');
       
     // state and city fieds 
-     // cy.get ('#state')
-       //  expect(element).to.be.null; - actually itsn't null
-    
+     //cy.get ('#state').then((element) => {
+       //expect(element).to.be.empty; //actually itsn't empty
+     //})
+
+     //cy.get('.dropdown-menu') - this is from cy doc with get examples
+      //.should('have.lenth', 5)
+     
     cy.get('[for="hobbies-checkbox-1"]')
       .should('contain', 'Sports')
       .and('have.class', 'custom-control-label');
-    });
+
+    cy.get ('#hobbies-checkbox-2')
+    .should('not.be.checked');
+    });  
   });
