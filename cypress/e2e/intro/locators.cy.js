@@ -55,23 +55,24 @@ describe('Locators: Get elements by different locator strategies', () => {
         expect(element).to.have.text('Female');
         //and(element).to.have.class('custom-control-label');
       });
-    //added by me
+    //TC1 added by me 
       //cy.get ('#currentAddress').then((element) => {
        // expect(element).to.be.a('textarea');
       //}); 
     }); 
     
-    //added by me
+    //TC2 added by me
     it('Check with should and expect', () => { 
     //should assert
       //cy.get (['#city'])
         //.should('be.disabled');
       
-    // state and city fieds 
+    //TC3 state and city fieds 
      //cy.get ('#state').then((element) => {
        //expect(element).to.be.empty; //actually itsn't empty
      //})
-
+    
+     //TC4
      //cy.get('.dropdown-menu') - this is from cy doc with get examples
       //.should('have.lenth', 5)
      
