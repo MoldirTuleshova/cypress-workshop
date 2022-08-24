@@ -5,7 +5,7 @@ describe('Locators: Get elements by different locator strategies', () => {
     cy.visit('/automation-practice-form');
   });
 
-  it('Check different locators strategies', () => {
+  xit('Check different locators strategies', () => {
     // By id
     cy.get('#firstName');
 
@@ -37,12 +37,12 @@ describe('Locators: Get elements by different locator strategies', () => {
     // cy.get('[data-test="first_name"]');
   });
 
-  it('Check finding elements by travelling through DOM', () => {
+  xit('Check finding elements by travelling through DOM', () => {
     // Travel through DOM to find Submit button
     cy.get('#firstName').parents('form').find('button').should('contain', 'Submit');
   });
 
-  it('Check different types of assetions', () => {
+  xit('Check different types of assetions', () => {
       // Should assertion
       cy.get('[for="gender-radio-2"]')
         .should('contain', 'Female')
@@ -52,22 +52,27 @@ describe('Locators: Get elements by different locator strategies', () => {
   it('Check expect assertion', () => {
     // Expect assertion
       cy.get('[for="gender-radio-2"]').then((element) => {
-        expect(element).to.have.text('Female')
-        and(element).to.have.class('custom-control-label');
+        expect(element).to.have.text('Female');
+        //and(element).to.have.class('custom-control-label');
       });
+    //added by me
+      //cy.get ('#currentAddress').then((element) => {
+       // expect(element).to.be.a('textarea');
+      //}); 
     }); 
-
-    it('Check state and city fields with assertions'), () => { 
-    // should assert
-    cy.get (['#stateCity-wrapper > :nth-child(3)'])
-      .should('be.disabled');
-
+    
+    //added by me
+    it('Check state and city fields with assertions', () => { 
+    //should assert
+      //cy.get (['#city'])
+        //.should('be.disabled');
+      
     // state and city fieds 
-    cy.get ('#state')
-       expect(element).to.be.null;
-
-    cy.get('[for="hobbiesWrapper"]')
+     // cy.get ('#state')
+       //  expect(element).to.be.null; - actually itsn't null
+    
+    cy.get('[for="hobbies-checkbox-1"]')
       .should('contain', 'Sports')
       .and('have.class', 'custom-control-label');
-    };
+    });
   });
