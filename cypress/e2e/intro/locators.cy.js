@@ -5,7 +5,7 @@ describe('Locators: Get elements by different locator strategies', () => {
     cy.visit('/automation-practice-form');
   });
 
-  xit('Check different locators strategies', () => {
+  it('Check different locators strategies', () => {
     // By id
     cy.get('#firstName');
 
@@ -55,6 +55,7 @@ describe('Locators: Get elements by different locator strategies', () => {
         expect(element).to.have.text('Female');
         //and(element).to.have.class('custom-control-label');
       });
+
     //TC1 added by me 
       //cy.get ('#currentAddress').then((element) => {
        // expect(element).to.be.a('textarea');
@@ -62,25 +63,53 @@ describe('Locators: Get elements by different locator strategies', () => {
     }); 
     
     //TC2 added by me
-    it('Check with should and expect', () => { 
+    xit('Check with should and expect', () => { 
     //should assert
-      //cy.get (['#city'])
-        //.should('be.disabled');
-      
+      cy.get('#react-select-4-input')
+        .should('be.disabled');
+    }); 
     //TC3 state and city fieds 
-     //cy.get ('#state').then((element) => {
-       //expect(element).to.be.empty; //actually itsn't empty
+     //cy.get ('[class="css-1wa3eu0-placeholder"]').then((element) => {
+      // expect(element).to.have.text('Select State'); //actually itsn't empty
      //})
     
-     //TC4
-     //cy.get('.dropdown-menu') - this is from cy doc with get examples
-      //.should('have.lenth', 5)
-     
-    cy.get('[for="hobbies-checkbox-1"]')
-      .should('contain', 'Sports')
-      .and('have.class', 'custom-control-label');
+     xit('TC4-1st option with index', () => { 
+      cy.get ('#state') 
+        .eq(0)
+        .should('contain.text','NCR');
+  
+      cy.get ('#state')
+         .eq(0)
+         .should('contain.text', 'Uttar Pradesh');
+      }); 
+  
+      xit('TC4-2nd option - select method', () => { 
+      cy.fixture('state').then((state) => {
+      cy.get('#state option').each((option, index) => {
+         const optionText = option.text();
+         cy.get('#state')
+           .select(optionText)
+           .should('have.value', option.val())
+           .contains(state[index]); 
+          });      
+        });  
+      }); 
+   
+    it('TC4-3rd option - single select', () => {
+      cy.get('#state').click();
+      cy.get('#react-select-3-option-2').click();
+      cy.get('#state').contains('Haryana')
+    }
+    )
+
+  
+  xit('check with should', () => {   
+     cy.get('[for="hobbies-checkbox-1"]')
+       .should('contain', 'Sports')
+       .and('have.class', 'custom-control-label');
 
     cy.get ('#hobbies-checkbox-2')
     .should('not.be.checked');
-    });  
+    });
+  
   });
