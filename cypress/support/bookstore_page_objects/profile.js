@@ -9,6 +9,11 @@ export class ProfileActions {
           cy.get(`#closeSmallModal-${dialog_option}`).click();
         });
     }
+    
+    deleteAllBooks(dialog_option) {
+      cy.get('.text-center button').click();    
+    }
+        
   
     checkBookData(book_name) {
       // Navigate to book info (open book from table)
