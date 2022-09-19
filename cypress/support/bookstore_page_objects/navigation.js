@@ -1,23 +1,15 @@
 export class NavigateTo {
   login() {
-    cy.visit('/login');
+    cy.visit(Cypress.env('login'));
   }
 
   profile() {
-    cy.visit('/profile');
+    cy.visit(Cypress.env('profile'));
   }
 
-  bookStoreFromProfile() {
-    cy.get('#gotoStore').click();
+  bookStore() {
+    cy.visit(Cypress.env('books'));
   }
-  
-  //Added new nav by Moldir
-  //button Back to Bookstore on UI
-  bookStoreFromBookDetPage() {
-    cy.get('.text-left > #addNewRecordButton').click();
-    //cy.get('[class="text-left fullButton"]').click();
-  }
-
 }
 
 export const navigateTo = new NavigateTo();
