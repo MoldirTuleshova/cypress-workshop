@@ -62,3 +62,11 @@ Cypress.Commands.add('deleteUser', () => {
   api.deleteUser(username, password);
 });
 
+//added by me
+Cypress.Commands.add('addBook', () => {
+    api.addBook(userId, collectionOfIsbns);
+  });
+
+  Cypress.Commands.add('DeleteBook', () => {
+    api.deleteBook(uisbn, userId);
+  });

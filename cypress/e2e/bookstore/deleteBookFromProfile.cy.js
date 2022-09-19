@@ -13,6 +13,8 @@ describe('Collections: Delete Book From Collection', () => {
 
   // Add book to collection
   beforeEach('Add book to profile collection', () => {
+    //added by me
+    //cy.addBook()
     navigateTo.bookStore();
     cy.fixture('books').then((books) => {
       bookActions.addBookToCollection(books.collection1.SpeakingJS);
@@ -62,20 +64,5 @@ describe('Collections: Delete Book From Collection', () => {
 });
 
 
-//If i know how to fix TC with adding 2 books, here i would use it for delete all case too
-
-  //it('Delete all books from profile collections - confirm', () => {
-  //do we need fixture after it? cos we just need any book in profile? 
-  //         navigateTo.profile();
-  //      // Check if book is in the collection table
-  //      cy.get('.rt-tbody')
-  //        .find('.rt-tr-group')
-  //        .first()
-  //        .should('contain', books.collection1.SpeakingJS);
-
-  //    //delete all books
-       //profileActions.deleteAllBooks('ok');
-       //Verify all books are deleted 
-  //});
 
 

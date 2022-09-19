@@ -13,6 +13,8 @@ describe('Collections: Check Book Info', () => {
 
   // Add book to book collection
   beforeEach('Add book to profile collection', () => {
+    //added by me
+    //cy.addBook()
     navigateTo.bookStore();
     cy.fixture('books').then((books) => {
       bookActions.addBookToCollection(books.collection1.DesignPatternsJS);
